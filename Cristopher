@@ -1,0 +1,24 @@
+import java.util.Scanner;
+import java.time.LocalDate;
+import java.time.Period;
+
+public class CalcularEdad {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Ingrese su fecha de nacimiento (formato: AAAA-MM-DD): ");
+        String fechaNacimientoInput = scanner.nextLine();
+
+        // Convertir la cadena ingresada a un objeto LocalDate
+        LocalDate fechaNacimiento = LocalDate.parse(fechaNacimientoInput);
+        LocalDate fechaActual = LocalDate.now();
+
+        // Calcular la edad
+        Period periodo = Period.between(fechaNacimiento, fechaActual);
+        int edad = periodo.getYears();
+
+        System.out.println("Su edad es: " + edad + " años.");
+
+        scanner.close();
+    }
+}
